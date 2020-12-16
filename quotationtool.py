@@ -1,8 +1,38 @@
 import tkinter as tk
+from tkinter import filedialog 
+
+
+
+product = []
+name = []
+qty = []
+VAT = []
+total = []
+name = []
 
 master = tk.Tk()
 master.title("Simple Quotation Tool")
 
+
+def browseFiles(): 
+    filename = filedialog.askopenfilename(initialdir = "/", 
+                                          title = "Select a File", 
+                                          filetypes = (("Text files", 
+                                                        "*.txt*"), 
+                                                       ("all files", 
+                                                        "*.*"))) 
+       
+    # Change label contents 
+    label_file_explorer.configure(text="File Opened: "+filename) 
+
+
+def write_to_txt():
+
+    inputValue=bus_string.get()
+    print(inputValue)
+    
+    with open("Raees.txt", "w+") as file:
+        file.write(str(inputValue)) 
 
 tk.Label(master, text="Business Name").grid(row=0)
 tk.Label(master, text="VAT Number").grid(row=1)
@@ -40,197 +70,157 @@ tk.Label(master, text="Qty").grid(row=7, column=3)
 tk.Label(master, text="VAT").grid(row=7, column=4)
 tk.Label(master, text="Total").grid(row=7, column=5)
 
-business_name = tk.Entry(master)
-vat_num = tk.Entry(master)
-contact_person = tk.Entry(master)
-street_add = tk.Entry(master)
-city = tk.Entry(master)
-province = tk.Entry(master)
-contact_num = tk.Entry(master)
 
-product1 = tk.Entry(master)
-product2 = tk.Entry(master)
-product3 = tk.Entry(master)
-product4 = tk.Entry(master)
-product5 = tk.Entry(master)
-product6 = tk.Entry(master)
-product7 = tk.Entry(master)
-product8 = tk.Entry(master)
-product9 = tk.Entry(master)
-product10 = tk.Entry(master)
-product11 = tk.Entry(master)
+#String Variables Business Details
 
-name1 = tk.Entry(master)
-name2 = tk.Entry(master)
-name3 = tk.Entry(master)
-name4 = tk.Entry(master)
-name5 = tk.Entry(master)
-name6 = tk.Entry(master)
-name7 = tk.Entry(master)
-name8 = tk.Entry(master)
-name9 = tk.Entry(master)
-name10 = tk.Entry(master)
-name11 = tk.Entry(master)
+bus_string = tk.StringVar()
+vat_string = tk.StringVar()
+contact_string = tk.StringVar()
+street_string = tk.StringVar()
+city_string = tk.StringVar()
+province_string = tk.StringVar()
+contact_string = tk.StringVar()
 
-qty1 = tk.Entry(master)
-qty2 = tk.Entry(master)
-qty3 = tk.Entry(master)
-qty4 = tk.Entry(master)
-qty5 = tk.Entry(master)
-qty6 = tk.Entry(master)
-qty7 = tk.Entry(master)
-qty8 = tk.Entry(master)
-qty9 = tk.Entry(master)
-qty10 = tk.Entry(master)
-qty11 = tk.Entry(master)
+#Business Details
 
-VAT1 = tk.Entry(master)
-VAT2 = tk.Entry(master)
-VAT3 = tk.Entry(master)
-VAT4 = tk.Entry(master)
-VAT5 = tk.Entry(master)
-VAT6 = tk.Entry(master)
-VAT7 = tk.Entry(master)
-VAT8 = tk.Entry(master)
-VAT9 = tk.Entry(master)
-VAT10 = tk.Entry(master)
-VAT11 = tk.Entry(master)
+business_name = tk.Entry(master, textvariable = bus_string).grid(row=0, column=1)
+vat_num = tk.Entry(master, textvariable= vat_string).grid(row=1, column=1)
+contact_person = tk.Entry(master, textvariable= contact_string).grid(row=2, column=1)
+street_add = tk.Entry(master, textvariable= street_string).grid(row=3, column=1)
+city = tk.Entry(master, textvariable= city_string).grid(row=4, column=1)
+province = tk.Entry(master, textvariable= province_string).grid(row=5, column=1)
+contact_num = tk.Entry(master, textvariable= contact_string).grid(row=6, column=1)
 
-total1 = tk.Entry(master)
-total2 = tk.Entry(master)
-total3 = tk.Entry(master)
-total4 = tk.Entry(master)
-total5 = tk.Entry(master)
-total6 = tk.Entry(master)
-total7 = tk.Entry(master)
-total8 = tk.Entry(master)
-total9 = tk.Entry(master)
-total10 = tk.Entry(master)
-total11 = tk.Entry(master)
+#String Variables Customer Details
 
-sum_price = tk.Entry(master)
-sum_vat = tk.Entry(master)
-sum_total = tk.Entry(master)
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+
+#Customer Details
+
+customer_name = tk.Entry(master).grid(row=0, column=3)
+vat_num2 = tk.Entry(master).grid(row=1, column=3)
+contact_num2 = tk.Entry(master).grid(row=2, column=3)
+street_add2 = tk.Entry(master).grid(row=3, column=3)
+city2 = tk.Entry(master).grid(row=4, column=3)
+province2 = tk.Entry(master).grid(row=5, column=3)
+
+#Product Names
+
+tk.Entry(master).grid(row=8, column=1)
+tk.Entry(master).grid(row=9, column=1)
+tk.Entry(master).grid(row=10, column=1)
+tk.Entry(master).grid(row=11, column=1)
+tk.Entry(master).grid(row=12, column=1)
+tk.Entry(master).grid(row=13, column=1)
+tk.Entry(master).grid(row=14, column=1)
+tk.Entry(master).grid(row=15, column=1)
+tk.Entry(master).grid(row=16, column=1)
+tk.Entry(master).grid(row=17, column=1)
+tk.Entry(master).grid(row=18, column=1)
+
+#Product Prices
+
+tk.Entry(master).grid(row=8, column=2)
+tk.Entry(master).grid(row=9, column=2)
+tk.Entry(master).grid(row=10, column=2)
+tk.Entry(master).grid(row=11, column=2)
+tk.Entry(master).grid(row=12, column=2)
+tk.Entry(master).grid(row=13, column=2)
+tk.Entry(master).grid(row=14, column=2)
+tk.Entry(master).grid(row=15, column=2)
+tk.Entry(master).grid(row=16, column=2)
+tk.Entry(master).grid(row=17, column=2)
+tk.Entry(master).grid(row=18, column=2)
+    
+#Quantity
+
+tk.Entry(master).grid(row=8, column=3)
+tk.Entry(master).grid(row=9, column=3)
+tk.Entry(master).grid(row=10, column=3)
+tk.Entry(master).grid(row=11, column=3)
+tk.Entry(master).grid(row=12, column=3)
+tk.Entry(master).grid(row=13, column=3)
+tk.Entry(master).grid(row=14, column=3)
+tk.Entry(master).grid(row=15, column=3)
+tk.Entry(master).grid(row=16, column=3)
+tk.Entry(master).grid(row=17, column=3)
+tk.Entry(master).grid(row=18, column=3)
+
+#VAT
+
+tk.Entry(master).grid(row=8, column=4)
+tk.Entry(master).grid(row=9, column=4)
+tk.Entry(master).grid(row=10, column=4)
+tk.Entry(master).grid(row=11, column=4)
+tk.Entry(master).grid(row=12, column=4)
+tk.Entry(master).grid(row=13, column=4)
+tk.Entry(master).grid(row=14, column=4)
+tk.Entry(master).grid(row=15, column=4)
+tk.Entry(master).grid(row=16, column=4)
+tk.Entry(master).grid(row=17, column=4)
+tk.Entry(master).grid(row=18, column=4)
+
+#Totals
+
+tk.Entry(master).grid(row=8, column=5)
+tk.Entry(master).grid(row=9, column=5)
+tk.Entry(master).grid(row=10, column=5)
+tk.Entry(master).grid(row=11, column=5)
+tk.Entry(master).grid(row=12, column=5)
+tk.Entry(master).grid(row=13, column=5)
+tk.Entry(master).grid(row=14, column=5)
+tk.Entry(master).grid(row=15, column=5)
+tk.Entry(master).grid(row=16, column=5)
+tk.Entry(master).grid(row=17, column=5)
+tk.Entry(master).grid(row=18, column=5)
+
+#Sums
+
+sum_price = tk.Entry(master).grid(row=20, column=2)
+sum_vat = tk.Entry(master).grid(row=20, column=4)
+sum_total = tk.Entry(master).grid(row=20, column=5)
+
+#String Variables Product Names
+
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
+bus_string = tk.StringVar()
 
 
-customer_name = tk.Entry(master)
-vat_num2 = tk.Entry(master)
-contact_num2 = tk.Entry(master)
-street_add2 = tk.Entry(master)
-city2 = tk.Entry(master)
-province2 = tk.Entry(master)
 
-
-business_name.grid(row=0, column=1)
-vat_num.grid(row=1, column=1)
-contact_person.grid(row=2, column=1)
-street_add.grid(row=3, column=1)
-city.grid(row=4, column=1)
-province.grid(row=5, column=1)
-contact_num.grid(row=6, column=1)
-
-product1.grid(row=8, column=1)
-product2.grid(row=9, column=1)
-product3.grid(row=10, column=1)
-product4.grid(row=11, column=1)
-product5.grid(row=12, column=1)
-product6.grid(row=13, column=1)
-product7.grid(row=14, column=1)
-product8.grid(row=15, column=1)
-product9.grid(row=16, column=1)
-product10.grid(row=17, column=1)
-product11.grid(row=18, column=1)
-
-name1.grid(row=8, column=2)
-name2.grid(row=9, column=2)
-name3.grid(row=10, column=2)
-name4.grid(row=11, column=2)
-name5.grid(row=12, column=2)
-name6.grid(row=13, column=2)
-name7.grid(row=14, column=2)
-name8.grid(row=15, column=2)
-name9.grid(row=16, column=2)
-name10.grid(row=17, column=2)
-name11.grid(row=18, column=2)
-
-qty1.grid(row=8, column=3)
-qty2.grid(row=9, column=3)
-qty3.grid(row=10, column=3)
-qty4.grid(row=11, column=3)
-qty5.grid(row=12, column=3)
-qty6.grid(row=13, column=3)
-qty7.grid(row=14, column=3)
-qty8.grid(row=15, column=3)
-qty9.grid(row=16, column=3)
-qty10.grid(row=17, column=3)
-qty11.grid(row=18, column=3)
-
-VAT1.grid(row=8, column=4)
-VAT2.grid(row=9, column=4)
-VAT3.grid(row=10, column=4)
-VAT4.grid(row=11, column=4)
-VAT5.grid(row=12, column=4)
-VAT6.grid(row=13, column=4)
-VAT7.grid(row=14, column=4)
-VAT8.grid(row=15, column=4)
-VAT9.grid(row=16, column=4)
-VAT10.grid(row=17, column=4)
-VAT11.grid(row=18, column=4)
-
-total1.grid(row=8, column=5)
-total2.grid(row=9, column=5)
-total3.grid(row=10, column=5)
-total4.grid(row=11, column=5)
-total5.grid(row=12, column=5)
-total6.grid(row=13, column=5)
-total7.grid(row=14, column=5)
-total8.grid(row=15, column=5)
-total9.grid(row=16, column=5)
-total10.grid(row=17, column=5)
-total11.grid(row=18, column=5)
-
-sum_price.grid(row=20, column=2)
-sum_vat.grid(row=20, column=4)
-sum_total.grid(row=20, column=5)
-
-customer_name.grid(row=0, column=3)
-vat_num2.grid(row=1, column=3)
-contact_num2.grid(row=2, column=3)
-street_add2.grid(row=3, column=3)
-city2.grid(row=4, column=3)
-province2.grid(row=5, column=3)
 
 button = tk.Button(master, 
-                   text="QUIT", 
-                   fg="red",
-                   command=quit)
-button.grid(row=22, column=3)
-
-def create_quote():
-    print("*********************************************************************************************")
-    print("*"+ str(business_name))
-    print("*"+ str(vat_num))
-    print("*"+ str(contact_person))
-    print("*"+ str(street_add))
-    print("*"+ str(city))
-    print("*"+ str(province))
-    print("*"+ str(contact_num))
-    print("*********************************************************************************************")
-
-button2 = tk.Button(master, 
-                   text="Create Quote", 
-                   fg="black",
-                   command=create_quote())
+                    text="Browse Files", 
+                    fg="black",
+                    command=browseFiles,)
 button.grid(row=22, column=2)
 
+button = tk.Button(master, 
+                    text="Create Quote", 
+                    fg="black",
+                    command=lambda : write_to_txt())
+button.grid(row=22, column=1)
 
 
+button = tk.Button(master, 
+                text="QUIT", 
+                fg="red",
+                command=quit)
+button.grid(row=22, column=3)
 
 
-master.mainloop()
-
-
-
-
+print(name)
 
 master.mainloop()
